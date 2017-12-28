@@ -61,8 +61,7 @@ int main(int argc, char *argv[])
 }
 
 void trueOrFalse(const Gate gate){
-    string name = gate.name;
-    qDebug() << name.c_str();
+    qDebug() << gate.name.c_str();
     if(gate.output){
         qDebug() << "The result is true\n";
     }else {
