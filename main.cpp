@@ -32,7 +32,9 @@ int main(int argc, char *argv[])
         }
 
     }
-    //ThreeInputGates
+*/
+
+/*    //ThreeInputGates
     {
         Or3 or3(0,0,1);
         And3 and3(1,1,0);
@@ -60,16 +62,24 @@ int main(int argc, char *argv[])
         compSum.printOutputs();
     }
 */
-    SRLatch srlatch(1,0);
-    srlatch.printParameters();
-    srlatch.resetParameters(0,0);
-    srlatch.printParameters();
-    srlatch.resetParameters(0,1);
-    srlatch.printParameters();
-    srlatch.resetParameters(0,0);
+
+/*    //SRLatches
+    SRLatchNAnd srlatch(1,0);
     srlatch.printParameters();
     srlatch.resetParameters(1,1);
     srlatch.printParameters();
+    srlatch.resetParameters(0,1);
+    srlatch.printParameters();
+    srlatch.resetParameters(1,1);
+    srlatch.printParameters();
+    srlatch.resetParameters(0,0);
+    srlatch.printParameters();
+*/
+
+    //SRLatchControlInput
+    LatchConIn latchconin(1,1,1);
+    latchconin.printParameters();
+
     return a.exec();
 }
 
