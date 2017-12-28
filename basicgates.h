@@ -71,6 +71,10 @@ class NAnd : public Gate{
 
 class XOr : public Gate{
     public:
+        XOr(){
+            name = "XOr";
+            output = false;
+        }
         XOr(const bool A, const bool B){
             Not notA(A);
             Not notB(B);

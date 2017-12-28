@@ -19,4 +19,5 @@ SOURCES += main.cpp
 HEADERS += \
     basicgates.h \
     threeinputgates.h \
-    logiccircuits.h
+    logiccircuits.h \
+    latches.h

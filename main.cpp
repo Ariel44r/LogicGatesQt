@@ -3,6 +3,7 @@
 #include <basicgates.h>
 #include <threeinputgates.h>
 #include <logiccircuits.h>
+#include <latches.h>
 
 void trueOrFalse(const Gate gate);
 
@@ -11,7 +12,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     qDebug() << "hello world!";
 
-    //TwoInputGates
+/*    //TwoInputGates
     {
         Or or1(0, 1);
         And and1(1,1);
@@ -50,13 +51,26 @@ int main(int argc, char *argv[])
             trueOrFalse(xnor3);
         }
     }
-    //LogicCircuits
+*/
+
+/*    //LogicCircuits
     {
         SemiSum semiSum(1,0);
         semiSum.printOutputs();
         CompSum compSum(1,1,1);
         compSum.printOutputs();
     }
+*/
+    SRLatch srlatch(1,0);
+    srlatch.printParameters();
+    srlatch.resetParameters(0,0);
+    srlatch.printParameters();
+    srlatch.resetParameters(0,1);
+    srlatch.printParameters();
+    srlatch.resetParameters(0,0);
+    srlatch.printParameters();
+    srlatch.resetParameters(1,1);
+    srlatch.printParameters();
     return a.exec();
 }
 
