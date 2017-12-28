@@ -1,7 +1,6 @@
 #ifndef LATCHES_H
 #define LATCHES_H
 
-#include <string>
 #include <iostream>
 #include <basicgates.h>
 #include <QDebug>
@@ -26,10 +25,10 @@ class SRLatch{
             this->setParameters(S,R);
         }
         void printParameters(){
+            qDebug() << status.c_str();
             qDebug() << name.c_str();
             qDebug() << "Q = " << Q;
             qDebug() << "Qn = " << Qn;
-            qDebug() << "Status = " << status.c_str();
         }
         void resetParameters(const bool S, const bool R){
             this->setParameters(S,R);
@@ -38,28 +37,28 @@ class SRLatch{
             if(S && !R){
                 Q = true;
                 Qn = false;
-                status = "al";
+                status = "allow0";
             }
             if((!S && !R) && count00 == 0){
                 count00 = 1;
                 Q = true;
                 Qn = false;
-                status = "all";
+                status = "allow1";
             } else if ((!S && !R) && count00 == 1){
                 Q = false;
                 Qn = true;
                 count00 = 0;
-                status = "allow";
+                status = "allow3";
             }
             if(!S && R){
                 Q = false;
                 Qn = true;
-                status = "allo";
+                status = "allow2";
             }
             if(S && R){
                 Q = false;
                 Qn = false;
-                status = "prohibited";
+                status = "prohibited4";
             }
         }
 };
