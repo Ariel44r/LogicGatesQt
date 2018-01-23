@@ -22,15 +22,15 @@ class Latch{
         }
 };
 
-class SRLatchOr : public Latch{
+class SRLatchNOr : public Latch{
     public:
         int count00;
 
-        SRLatchOr(){
+        SRLatchNOr(){
             name = "SRLatchOr";
             count00 = 0;
         }
-        SRLatchOr(const bool S, const bool R){
+        SRLatchNOr(const bool S, const bool R){
             name = "SRLatchOr";
             count00 = 0;
             this->setParameters(S,R);
@@ -127,6 +127,21 @@ class LatchConIn : public Latch{
             Q = srlatchnand.Q;
             Qn = srlatchnand.Qn;
         }
+};
+
+class LatchD : public Latch{
+  public:
+    LatchD(){
+        name = "Latch D";
+    }
+    LatchD(const bool D, const bool En){
+        NAnd nand1(D, En);
+        Not not1(D);
+        NAnd nand2(En, not1.output);
+        SRLatchNAnd srlatchnand(nand1.output,nand2.output);
+        Q = srlatchnand.Q;
+        Qn = srlatchnand.Qn;
+    }
 };
 
 #endif // LATCHES_H

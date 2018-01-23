@@ -4,6 +4,7 @@
 #include <threeinputgates.h>
 #include <logiccircuits.h>
 #include <latches.h>
+#include <mytimer.h>
 
 void trueOrFalse(const Gate gate);
 
@@ -77,10 +78,18 @@ int main(int argc, char *argv[])
 */
 
     //SRLatchControlInput
-    LatchConIn latchconin(1,1,1);
-    latchconin.printParameters();
+    //LatchConIn latchconin(1,1,1);
+    //latchconin.printParameters();
 
-    return a.exec();
+    //LatchD
+    LatchD latchD1(1, 0);
+    LatchD latchD2(1, 1);
+    latchD1.printParameters();
+    latchD2.printParameters();
+    MyTimer timer;
+
+   timer.TimerDelay(10000);
+   return a.exec();
 }
 
 void trueOrFalse(const Gate gate){
