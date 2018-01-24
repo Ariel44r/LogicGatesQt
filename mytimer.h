@@ -8,12 +8,19 @@ class MyTimer : public QObject
 public:
     MyTimer();
     MyTimer(QObject* parent);
+    QTimer *timer = new QTimer(this);
+
 public slots:
-    void TimerHandlerFunction();
+    void ToggleLogicLevel();
+    void SetTimer(const float);
+    void SetClock(const float);
     void TimerDelay(const float);
+    void ToggleOff();
+    bool StatusLogic();
+
 private:
     float Fr;
-    int m_a;
+    bool output;
 };
 
 #endif // MYTIMER_H

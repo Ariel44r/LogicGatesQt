@@ -86,10 +86,15 @@ int main(int argc, char *argv[])
     LatchD latchD2(1, 1);
     latchD1.printParameters();
     latchD2.printParameters();
-    MyTimer timer;
-
-   timer.TimerDelay(10000);
-   return a.exec();
+    MyTimer timer0, timer1;
+    //timer.SetClock(1);  //set frecuency in [Hz]
+    //timer.SetTimer(1000); //set Period in [ms]
+    //timer1.SetClock(1);
+    timer0.TimerDelay(10000);
+    while(timer0.timer->remainingTime()){
+        qDebug() << timer0.StatusLogic() << " @ " << timer0.timer->remainingTime()/1000;
+    }
+    return a.exec();
 }
 
 void trueOrFalse(const Gate gate){
